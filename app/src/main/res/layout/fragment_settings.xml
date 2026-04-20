@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ── Main content ──────────────────────────────────────────────────── -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0D1B2A"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:textSize="28sp"
+                android:textColor="#ECEFF1"
+                android:textStyle="bold"
+                android:paddingBottom="24dp" />
+
+            <!-- ── Machine Profiles ───────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MACHINE PROFILES"
+                android:textColor="#546E7A"
+                android:textSize="11sp"
+                android:letterSpacing="0.12"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save calibration values per machine. Selecting a machine loads its c_dist and flywheel inertia."
+                android:textColor="#546E7A"
+                android:textSize="12sp"
+                android:paddingBottom="8dp" />
+
+            <Spinner
+                android:id="@+id/spinner_machine"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/spinner_bg"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
+
+                <Button
+                    android:id="@+id/btn_add_machine"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:text="New"
+                    android:textSize="12sp"
+                    android:backgroundTint="#1E3A5F"
+                    android:textColor="#90A4AE"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btn_rename_machine"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:text="Rename"
+                    android:textSize="12sp"
+                    android:backgroundTint="#1E3A5F"
+                    android:textColor="#90A4AE"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btn_delete_machine"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:text="Delete"
+                    android:textSize="12sp"
+                    android:backgroundTint="#1E3A5F"
+                    android:textColor="#EF5350" />
+
+            </LinearLayout>
+
+            <!-- ── Device ─────────────────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DEVICE"
+                android:textColor="#546E7A"
+                android:textSize="11sp"
+                android:letterSpacing="0.12"
+                android:paddingBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingBottom="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Rowing Device"
+                    android:textColor="#90A4AE"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btn_scan_device"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="Scan BLE"
+                    android:textSize="11sp"
+                    android:backgroundTint="#1E3A5F"
+                    android:textColor="#90A4AE" />
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spinner_rowing_device"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/spinner_bg"
+                android:layout_marginBottom="24dp" />
+
+            <!-- ── Calibration ──────────────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CALIBRATION"
+                android:textColor="#546E7A"
+                android:textSize="11sp"
+                android:letterSpacing="0.12"
+                android:paddingBottom="12dp" />
+
+            <!-- Drag factor: read-only, auto-measured during workouts -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Drag Factor (auto-measured)"
+                android:textColor="#90A4AE"
+                android:textSize="14sp"
+                android:paddingBottom="4dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Measured automatically each stroke during the recovery phase (flywheel coasting freely). Updated after every workout. P = df/1e6 × ω³."
+                android:textColor="#546E7A"
+                android:textSize="12sp"
+                android:paddingBottom="6dp" />
+            <TextView
+                android:id="@+id/txt_drag_factor"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:textColor="#ECEFF1"
+                android:textSize="16sp"
+                android:background="@drawable/edit_bg"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Flywheel Inertia J (kg·m²)"
+                android:textColor="#90A4AE"
+                android:textSize="14sp"
+                android:paddingBottom="4dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scales the per-stroke drag factor measurement. Concept2 ≈ 0.100. Solid disc: 0.5 × mass(kg) × radius²(m²). Rim/fan: mass × radius²."
+                android:textColor="#546E7A"
+                android:textSize="12sp"
+                android:paddingBottom="6dp" />
+            <EditText
+                android:id="@+id/edit_flywheel_inertia"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="numberDecimal"
+                android:text="0.100"
+                android:textColor="#ECEFF1"
+                android:background="@drawable/edit_bg"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Distance Factor (c_dist)"
+                android:textColor="#90A4AE"
+                android:textSize="14sp"
+                android:paddingBottom="4dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maps flywheel ω (rad/s) to boat speed (m/s): v = c_dist × ω. Changing this automatically updates the drag factor via df = 2.80 × c_dist³ × 1e6."
+                android:textColor="#546E7A"
+                android:textSize="12sp"
+                android:paddingBottom="6dp" />
+            <EditText
+                android:id="@+id/edit_dist_factor"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="numberDecimal"
+                android:text="0.035"
+                android:textColor="#ECEFF1"
+                android:background="@drawable/edit_bg"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- c_dist calibration -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="c_dist Calibration"
+                android:textColor="#90A4AE"
+                android:textSize="14sp"
+                android:paddingBottom="4dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Attach your machine's original monitor. Row until it shows your target distance. OpenRower counts flywheel rotations; 10 s of silence = target reached."
+                android:textColor="#546E7A"
+                android:textSize="12sp"
+                android:paddingBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Target distance (m)"
+                    android:textColor="#90A4AE"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edit_calib_dist_target"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:inputType="number"
+                    android:text="500"
+                    android:textColor="#ECEFF1"
+                    android:background="@drawable/edit_bg"
+                    android:paddingHorizontal="12dp"
+                    android:gravity="center_vertical" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_calib_dist"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Start c_dist Calibration"
+                android:textSize="12sp"
+                android:backgroundTint="#1E3A5F"
+                android:textColor="#90A4AE"
+                android:layout_marginBottom="24dp" />
+
+            <!-- ── Heart Rate ──────────────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HEART RATE"
+                android:textColor="#546E7A"
+                android:textSize="11sp"
+                android:letterSpacing="0.12"
+                android:paddingBottom="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maximum Heart Rate (bpm)"
+                android:textColor="#90A4AE"
+                android:textSize="14sp"
+                android:paddingBottom="4dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Used to calculate HR zones (1–5) on the stroke chart. Typical: 220 − age."
+                android:textColor="#546E7A"
+                android:textSize="12sp"
+                android:paddingBottom="6dp" />
+            <EditText
+                android:id="@+id/edit_max_hr"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="number"
+                android:text="190"
+                android:textColor="#ECEFF1"
+                android:background="@drawable/edit_bg"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="24dp" />
+
+            <!-- ── Display ─────────────────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DISPLAY"
+                android:textColor="#546E7A"
+                android:textSize="11sp"
+                android:letterSpacing="0.12"
+                android:paddingBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Show energy as calories (kcal/h) instead of watts"
+                    android:textColor="#90A4AE"
+                    android:textSize="14sp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_use_calories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- ── Training History ───────────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TRAINING HISTORY"
+                android:textColor="#546E7A"
+                android:textSize="11sp"
+                android:letterSpacing="0.12"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delete training logs older than a selected date."
+                android:textColor="#546E7A"
+                android:textSize="12sp"
+                android:paddingBottom="8dp" />
+
+            <Button
+                android:id="@+id/btn_clear_logs"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Clear Old Training Logs…"
+                android:backgroundTint="#1E3A5F"
+                android:textColor="#90A4AE"
+                android:layout_marginBottom="24dp" />
+
+            <!-- ── Debug Logging ───────────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DEBUG LOGGING"
+                android:textColor="#546E7A"
+                android:textSize="11sp"
+                android:letterSpacing="0.12"
+                android:paddingBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Debug Logging (CSV) — saves raw pulse data for analysis (adb pull)"
+                    android:textColor="#90A4AE"
+                    android:textSize="14sp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_enable_log"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ── c_dist calibration overlay (full-screen, shown during calibration) ─ -->
+    <FrameLayout
+        android:id="@+id/layout_calib_dist_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC000C1A"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:orientation="vertical"
+            android:background="#0F2942"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/txt_calib_dist_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Connecting…"
+                android:textColor="#90A4AE"
+                android:textSize="14sp"
+                android:paddingBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Flywheel revolutions:"
+                    android:textColor="#546E7A"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/txt_calib_dist_revolutions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textColor="#ECEFF1"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Saving in:"
+                    android:textColor="#546E7A"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/txt_calib_dist_countdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10 s"
+                    android:textColor="#FFB300"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_calib_dist_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Cancel Calibration"
+                android:textSize="13sp"
+                android:backgroundTint="#1E3A5F"
+                android:textColor="#EF5350" />
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D1B2A">
+
+    <!-- ── Toolbar ── -->
+    <LinearLayout
+        android:id="@+id/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp"
+        android:background="#060E16">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Training History"
+            android:textColor="#ECEFF1"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- ── Calendar header ── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#0A1520"
+        android:paddingBottom="8dp">
+
+        <!-- Month navigation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="8dp">
+
+            <Button
+                android:id="@+id/btn_prev_month"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="‹"
+                android:textSize="20sp"
+                android:textColor="#90A4AE"
+                android:minWidth="0dp"
+                android:paddingHorizontal="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp" />
+
+            <TextView
+                android:id="@+id/txt_calendar_month"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="April 2026"
+                android:textColor="#ECEFF1"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/btn_next_month"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="›"
+                android:textSize="20sp"
+                android:textColor="#90A4AE"
+                android:minWidth="0dp"
+                android:paddingHorizontal="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp" />
+        </LinearLayout>
+
+        <!-- Day grid (filled programmatically) -->
+        <GridLayout
+            android:id="@+id/grid_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="7"
+            android:paddingHorizontal="4dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#1A2E45" />
+
+    <!-- ── Workout list ── -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_workouts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp" />
+
+</LinearLayout>

@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Landscape three-pane workout screen.
+  Left (weight 38): compact metrics panel – NO scrolling, all stats visible, right-aligned.
+  Right (weight 62): upper = force curve, lower = stroke/HR bar chart.
+  Toggle buttons in the toolbar show/hide each pane.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D1B2A">
+
+    <!-- ── Toolbar ────────────────────────────────────────────────────── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="6dp"
+        android:background="#060E16">
+
+        <TextView
+            android:id="@+id/txt_connection_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Connecting…"
+            android:textColor="#546E7A"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btn_toggle_metrics"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Metrics"
+            android:textSize="9sp"
+            android:textColor="#78909C"
+            android:minWidth="0dp"
+            android:paddingHorizontal="8dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:id="@+id/btn_toggle_force_curve"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Force"
+            android:textSize="9sp"
+            android:textColor="#78909C"
+            android:minWidth="0dp"
+            android:paddingHorizontal="8dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:id="@+id/btn_toggle_bar_chart"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Splits"
+            android:textSize="9sp"
+            android:textColor="#78909C"
+            android:minWidth="0dp"
+            android:paddingHorizontal="8dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:id="@+id/btn_end"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="End"
+            android:textSize="9sp"
+            android:backgroundTint="#B71C1C"
+            android:textColor="#FFFFFF"
+            android:minWidth="0dp"
+            android:paddingHorizontal="10dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+    <!-- ── Main two-column content ────────────────────────────────────── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <!-- ════════════════════════════════════════════════════════════ -->
+        <!-- Left: compact metrics panel, right-aligned text             -->
+        <!-- ════════════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:id="@+id/metrics_panel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="38"
+            android:orientation="vertical"
+            android:background="#0A1520"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp">
+
+            <!-- ── Row 1: Stroke rate (prominent) ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="22"
+                android:orientation="vertical"
+                android:gravity="center_vertical|end">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="STROKE RATE"
+                    android:textColor="#546E7A"
+                    android:textSize="8sp"
+                    android:letterSpacing="0.08"
+                    android:gravity="end" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="bottom|end">
+
+                    <TextView
+                        android:id="@+id/txt_stroke_rate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#ECEFF1"
+                        android:textSize="40sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" s/min"
+                        android:textColor="#78909C"
+                        android:textSize="12sp"
+                        android:paddingBottom="6dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="#1A2E45" />
+
+            <!-- ── Row 2: Time ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="16"
+                android:orientation="vertical"
+                android:gravity="center_vertical|end">
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="TIME" android:textColor="#78909C" android:textSize="8sp"
+                    android:letterSpacing="0.08" android:gravity="end" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical|end">
+
+                    <TextView
+                        android:id="@+id/txt_remaining_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#546E7A"
+                        android:textSize="13sp"
+                        android:paddingEnd="8dp" />
+
+                    <TextView
+                        android:id="@+id/txt_elapsed_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0:00"
+                        android:textColor="#ECEFF1"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="#1A2E45" />
+
+            <!-- ── Row 3: Distance ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="16"
+                android:orientation="vertical"
+                android:gravity="center_vertical|end">
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="DISTANCE" android:textColor="#78909C" android:textSize="8sp"
+                    android:letterSpacing="0.08" android:gravity="end" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical|end">
+
+                    <TextView
+                        android:id="@+id/txt_remaining_dist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#546E7A"
+                        android:textSize="13sp"
+                        android:paddingEnd="8dp" />
+
+                    <TextView
+                        android:id="@+id/txt_elapsed_dist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 m"
+                        android:textColor="#ECEFF1"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="#1A2E45" />
+
+            <!-- ── Row 4: Pace ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="14"
+                android:orientation="vertical"
+                android:gravity="center_vertical|end">
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="PACE /500m" android:textColor="#78909C" android:textSize="8sp"
+                    android:letterSpacing="0.08" android:gravity="end" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical|end">
+
+                    <TextView
+                        android:id="@+id/txt_avg_pace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#546E7A"
+                        android:textSize="12sp"
+                        android:paddingEnd="6dp" />
+
+                    <TextView
+                        android:id="@+id/txt_current_pace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--:--"
+                        android:textColor="#4FC3F7"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="#1A2E45" />
+
+            <!-- ── Row 5: Power / Calories ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="14"
+                android:orientation="vertical"
+                android:gravity="center_vertical|end">
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="POWER" android:textColor="#78909C" android:textSize="8sp"
+                    android:letterSpacing="0.08" android:gravity="end" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical|end">
+
+                    <TextView
+                        android:id="@+id/txt_energy_avg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#546E7A"
+                        android:textSize="12sp"
+                        android:paddingEnd="6dp" />
+
+                    <TextView
+                        android:id="@+id/txt_energy_current"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 W"
+                        android:textColor="#66BB6A"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="#1A2E45" />
+
+            <!-- ── Row 6: Heart rate ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="12"
+                android:orientation="vertical"
+                android:gravity="center_vertical|end">
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="HEART RATE" android:textColor="#78909C" android:textSize="8sp"
+                    android:letterSpacing="0.08" android:gravity="end" />
+
+                <TextView
+                    android:id="@+id/txt_heart_rate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-- bpm"
+                    android:textColor="#EF5350"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="end" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="#1A2E45" />
+
+            <!-- ── Row 7: Split ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:orientation="vertical"
+                android:gravity="center_vertical|end">
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="SPLIT" android:textColor="#78909C" android:textSize="8sp"
+                    android:letterSpacing="0.08" android:gravity="end" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical|end">
+
+                    <TextView
+                        android:id="@+id/txt_split_dist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#546E7A"
+                        android:textSize="13sp"
+                        android:paddingEnd="6dp" />
+
+                    <TextView
+                        android:id="@+id/txt_split_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#78909C"
+                        android:textSize="14sp"
+                        android:paddingEnd="8dp" />
+
+                    <TextView
+                        android:id="@+id/txt_split_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="S1"
+                        android:textColor="#B0BEC5"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="#1A2E45" />
+
+            <!-- ── Row 8: Projection ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6"
+                android:orientation="vertical"
+                android:gravity="center_vertical|end">
+
+                <TextView
+                    android:id="@+id/txt_projection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="#FFB300"
+                    android:textSize="12sp"
+                    android:gravity="end" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ════════════════════════════════════════════════════════════ -->
+        <!-- Right: force curve (upper) + bar chart (lower)             -->
+        <!-- ════════════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="62"
+            android:orientation="vertical">
+
+            <com.naibaf7.openrower.view.ForceCurveView
+                android:id="@+id/force_curve_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.naibaf7.openrower.view.BarChartView
+                android:id="@+id/bar_chart_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
+
+    <!-- ── Connecting overlay (shown until first BLE message arrives) ── -->
+    <LinearLayout
+        android:id="@+id/layout_connecting"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#CC0D1B2A"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:indeterminate="true"
+            android:indeterminateTint="#1976D2"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:id="@+id/txt_connecting_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Waiting for device to connect…"
+            android:textColor="#ECEFF1"
+            android:textSize="18sp"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/btn_cancel_connect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Cancel"
+            android:backgroundTint="#1E3A5F"
+            android:textColor="#90A4AE" />
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    USB device filter for OpenRower.
+
+    Vendor 0x1A86 = QinHeng Electronics (decimal 6790).
+    Omitting product-id acts as a wildcard, matching every chip from this vendor:
+    CH340, CH341, CH340K, CH340B, CH340C, CH9102, etc.
+
+    On Android 15+ (API 35+) apps can only enumerate USB devices in getDeviceList()
+    if the device matches this filter, so a vendor-level wildcard is necessary to
+    cover all CH340 clone variants found on Arduino Nano boards.
+-->
+<resources>
+    <usb-device vendor-id="6790" />
+</resources>
