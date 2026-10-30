@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D1B2A">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ── Title + toolbar ──────────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custom Workout"
+                android:textSize="22sp"
+                android:textColor="#ECEFF1"
+                android:textStyle="bold"
+                android:paddingBottom="12dp" />
+
+            <EditText
+                android:id="@+id/edit_workout_name"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Workout name"
+                android:textColor="#ECEFF1"
+                android:textColorHint="#546E7A"
+                android:background="@drawable/edit_bg"
+                android:paddingHorizontal="12dp"
+                android:inputType="text"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/btn_load_workout"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="Load"
+                    android:textSize="12sp"
+                    android:backgroundTint="#1E3A5F"
+                    android:textColor="#90A4AE"
+                    android:layout_marginEnd="6dp" />
+
+                <Button
+                    android:id="@+id/btn_save_workout"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="Save"
+                    android:textSize="12sp"
+                    android:backgroundTint="#1565C0"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- ── Timeline ──────────────────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="WORKOUT TIMELINE"
+                android:textColor="#546E7A"
+                android:textSize="11sp"
+                android:letterSpacing="0.1"
+                android:paddingBottom="6dp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="#0A1520"
+                android:layout_marginBottom="10dp"
+                android:scrollbars="none"
+                android:fillViewport="true">
+
+                <com.smartapes.openrower.view.WorkoutTimelineView
+                    android:id="@+id/timeline_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </HorizontalScrollView>
+
+            <!-- ── Segment controls ──────────────────────────────────────────── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <!-- Row 1: Add / Delete -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="4dp">
+
+                    <Button
+                        android:id="@+id/btn_add_workout"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:text="+ Work"
+                        android:textSize="11sp"
+                        android:backgroundTint="#1565C0"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginEnd="4dp" />
+
+                    <Button
+                        android:id="@+id/btn_add_recovery"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:text="+ Rest"
+                        android:textSize="11sp"
+                        android:backgroundTint="#1B5E20"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginEnd="4dp" />
+
+                    <Button
+                        android:id="@+id/btn_remove_segment"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:text="✕ Del"
+                        android:textSize="11sp"
+                        android:backgroundTint="#B71C1C"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+                <!-- Row 2: Move left / right -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_move_left"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:text="◀ Move Left"
+                        android:textSize="11sp"
+                        android:backgroundTint="#263238"
+                        android:textColor="#90A4AE"
+                        android:layout_marginEnd="4dp" />
+
+                    <Button
+                        android:id="@+id/btn_move_right"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:text="Move Right ▶"
+                        android:textSize="11sp"
+                        android:backgroundTint="#263238"
+                        android:textColor="#90A4AE" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ── Segment editor ─────────────────────────────────────────────── -->
+            <LinearLayout
+                android:id="@+id/layout_segment_editor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#0A1520"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/txt_seg_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SEGMENT"
+                    android:textColor="#78909C"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.1"
+                    android:paddingBottom="8dp" />
+
+                <!-- Duration (seconds) -->
+                <LinearLayout
+                    android:id="@+id/layout_duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Duration (s)"
+                        android:textColor="#90A4AE"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/edit_seg_duration"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:inputType="numberDecimal"
+                        android:textColor="#ECEFF1"
+                        android:background="@drawable/edit_bg"
+                        android:paddingHorizontal="10dp" />
+                </LinearLayout>
+
+                <!-- Distance (meters) — workout only -->
+                <LinearLayout
+                    android:id="@+id/layout_distance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Distance (m)"
+                        android:textColor="#90A4AE"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/edit_seg_distance"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:inputType="numberDecimal"
+                        android:textColor="#ECEFF1"
+                        android:background="@drawable/edit_bg"
+                        android:paddingHorizontal="10dp" />
+                </LinearLayout>
+
+                <!-- Timeless recovery toggle -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone">
+
+                    <CheckBox
+                        android:id="@+id/check_timeless"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Timeless (ends on first pull, 10s lockout)"
+                        android:textColor="#90A4AE"
+                        android:textSize="13sp"
+                        android:buttonTint="#1976D2" />
+                </LinearLayout>
+
+                <!-- Pace steps section (workout only) -->
+                <LinearLayout
+                    android:id="@+id/layout_pace_steps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="4dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Target Pace Steps"
+                            android:textColor="#90A4AE"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btn_add_pace_step"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:text="+ Step"
+                            android:textSize="11sp"
+                            android:backgroundTint="#1E3A5F"
+                            android:textColor="#90A4AE" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/container_pace_steps"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </LinearLayout>
+
+                <!-- Song assignment -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#1A2E45"
+                    android:layout_marginVertical="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/txt_assigned_song"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Song: None"
+                        android:textColor="#78909C"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/btn_assign_song"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:text="Pick Song"
+                        android:textSize="11sp"
+                        android:backgroundTint="#1E3A5F"
+                        android:textColor="#90A4AE" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ── Music library ──────────────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MUSIC"
+                android:textColor="#546E7A"
+                android:textSize="11sp"
+                android:letterSpacing="0.1"
+                android:paddingBottom="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/edit_media_folder"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:hint="Media folder path"
+                    android:textColor="#ECEFF1"
+                    android:textColorHint="#546E7A"
+                    android:background="@drawable/edit_bg"
+                    android:paddingHorizontal="10dp"
+                    android:inputType="text"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btn_browse_folder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="Browse"
+                    android:textSize="12sp"
+                    android:backgroundTint="#1E3A5F"
+                    android:textColor="#90A4AE" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/btn_load_playlist"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:text="Load Playlist"
+                    android:textSize="11sp"
+                    android:backgroundTint="#1E3A5F"
+                    android:textColor="#90A4AE"
+                    android:layout_marginEnd="6dp" />
+
+                <Button
+                    android:id="@+id/btn_auto_assign"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:text="Auto-Assign"
+                    android:textSize="11sp"
+                    android:backgroundTint="#1E3A5F"
+                    android:textColor="#90A4AE"
+                    android:layout_marginEnd="6dp" />
+
+                <Button
+                    android:id="@+id/btn_preview"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:text="Preview"
+                    android:textSize="11sp"
+                    android:backgroundTint="#1B5E20"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ── Busy indicator ───────────────────────────────────────────────── -->
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="#1976D2"
+        android:visibility="gone" />
+
+</FrameLayout>

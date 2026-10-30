@@ -26,12 +26,22 @@
 
         <TextView
             android:id="@+id/txt_connection_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="○"
+            android:textColor="#546E7A"
+            android:textSize="11sp"
+            android:paddingEnd="6dp" />
+
+        <TextView
+            android:id="@+id/txt_segment_info"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Connecting…"
-            android:textColor="#546E7A"
-            android:textSize="11sp" />
+            android:text=""
+            android:textColor="#80DEEA"
+            android:textSize="11sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_toggle_metrics"
@@ -124,29 +134,47 @@
                     android:letterSpacing="0.08"
                     android:gravity="end" />
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="bottom|end">
+                    android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/txt_stroke_rate"
+                        android:id="@+id/txt_target_stroke_rate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textColor="#ECEFF1"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textColor="#FFCA28"
                         android:textSize="40sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:visibility="gone" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" s/min"
-                        android:textColor="#78909C"
-                        android:textSize="12sp"
-                        android:paddingBottom="6dp" />
-                </LinearLayout>
+                        android:layout_alignParentEnd="true"
+                        android:orientation="horizontal"
+                        android:gravity="bottom">
+
+                        <TextView
+                            android:id="@+id/txt_stroke_rate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="#ECEFF1"
+                            android:textSize="40sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" s/min"
+                            android:textColor="#78909C"
+                            android:textSize="12sp"
+                            android:paddingBottom="6dp" />
+                    </LinearLayout>
+                </RelativeLayout>
             </LinearLayout>
 
             <View android:layout_width="match_parent" android:layout_height="1dp"
@@ -406,13 +434,13 @@
             android:layout_weight="62"
             android:orientation="vertical">
 
-            <com.naibaf7.openrower.view.ForceCurveView
+            <com.smartapes.openrower.view.ForceCurveView
                 android:id="@+id/force_curve_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
 
-            <com.naibaf7.openrower.view.BarChartView
+            <com.smartapes.openrower.view.BarChartView
                 android:id="@+id/bar_chart_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -422,6 +450,54 @@
     </LinearLayout>
 
 </LinearLayout>
+
+    <!-- ── Waiting-for-pull overlay (timeless recovery) ──────────────── -->
+    <LinearLayout
+        android:id="@+id/layout_waiting_for_pull"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#BB003300"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RECOVERY"
+            android:textColor="#69F0AE"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pull to continue"
+            android:textColor="#B2DFDB"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:paddingTop="8dp" />
+    </LinearLayout>
+
+    <!-- ── Countdown overlay (10 s before next segment) ─────────────── -->
+    <FrameLayout
+        android:id="@+id/layout_countdown"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AA0D1B2A"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txt_countdown_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="10"
+            android:textColor="#FF5252"
+            android:textSize="120sp"
+            android:textStyle="bold" />
+    </FrameLayout>
 
     <!-- ── Connecting overlay (shown until first BLE message arrives) ── -->
     <LinearLayout

@@ -1,0 +1,43 @@
+OpenRower sensor board
+
+Copyright 2026 Fabian Tschopp.
+
+This source describes Open Hardware and is licensed under the CERN-OHL-S v2.
+
+You may redistribute and modify this source and make products using it under
+the terms of the CERN-OHL-S v2 (https://ohwr.org/cern_ohl_s_v2.txt), a copy of
+which is in the file LICENSE in this directory.
+
+This source is distributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY, INCLUDING
+OF MERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A PARTICULAR PURPOSE.
+Please see the CERN-OHL-S v2 for applicable conditions.
+
+Source location: https://github.com/naibaf7/OpenRower
+
+As per CERN-OHL-S v2 section 4, should You produce hardware based on this
+source, You must where practicable maintain the Source Location visible on the
+printed circuit board (the back silkscreen carries it), or else on the
+product's case, packaging or documentation.
+
+
+Scope
+-----
+
+The CERN-OHL-S v2 covers everything in this directory (hardware/): the KiCad
+schematic, board and project files, the symbol library, the footprints, the
+fabrication outputs and the documentation. The exceptions are:
+
+- tools/ is software. It is licensed under the MIT License, in the file
+  LICENSE at the root of the repository.
+
+- These footprints come from third-party KiCad libraries and stay under their
+  own licence, CC-BY-SA 4.0 with the KiCad libraries exception
+  (https://www.kicad.org/libraries/license/):
+    CustomFootprints.pretty/ESP32-C3-MINI-1.kicad_mod
+      from the Espressif KiCad libraries,
+      https://github.com/espressif/kicad-libraries
+    CustomFootprints.pretty/USB_C_Receptacle_HRO_TYPE-C-31-M-12_Edge.kicad_mod
+      adapted from the KiCad footprint library: silkscreen on the mating
+      side removed
+  Under that exception, using these footprints in this design does not put
+  the design itself under CC-BY-SA.

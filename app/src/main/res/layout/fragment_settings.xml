@@ -54,6 +54,74 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pulses per revolution"
+                    android:textColor="#90A4AE"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edit_pulses_per_revolution"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:inputType="number"
+                    android:text="3"
+                    android:textColor="#ECEFF1"
+                    android:background="@drawable/edit_bg"
+                    android:paddingHorizontal="12dp"
+                    android:gravity="center_vertical" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sensor input (OpenRower ESP32 board)"
+                android:textColor="#90A4AE"
+                android:textSize="14sp"
+                android:paddingBottom="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
+
+                <Spinner
+                    android:id="@+id/spinner_sensor_mode"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="48dp"
+                    android:background="@drawable/spinner_bg"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btn_detect_sensor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="Detect"
+                    android:textSize="12sp"
+                    android:backgroundTint="#1E3A5F"
+                    android:textColor="#90A4AE" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hall sensors are powered through the jack's ring contact; Concept2 machines need no supply. The board switches the supply off by itself if the ring contact is shorted or carries a Concept2 generator voltage."
+                android:textColor="#546E7A"
+                android:textSize="12sp"
+                android:paddingBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_marginBottom="24dp">
 
                 <Button
@@ -364,6 +432,97 @@
                 android:textColor="#90A4AE"
                 android:layout_marginBottom="24dp" />
 
+            <!-- ── Music & TTS ────────────────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MUSIC &amp; VOICE"
+                android:textColor="#546E7A"
+                android:textSize="11sp"
+                android:letterSpacing="0.12"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Default media folder for custom workout music"
+                android:textColor="#90A4AE"
+                android:textSize="12sp"
+                android:paddingBottom="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <EditText
+                    android:id="@+id/edit_media_folder"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:hint="/storage/emulated/0/Music"
+                    android:textColor="#ECEFF1"
+                    android:textColorHint="#546E7A"
+                    android:background="@drawable/edit_bg"
+                    android:paddingHorizontal="12dp"
+                    android:inputType="text"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btn_browse_media_folder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="Browse"
+                    android:textSize="12sp"
+                    android:backgroundTint="#1E3A5F"
+                    android:textColor="#90A4AE" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Voice countdown (TTS)"
+                    android:textColor="#90A4AE"
+                    android:textSize="14sp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_tts_enabled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Voice language"
+                    android:textColor="#90A4AE"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_tts_language"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/spinner_bg" />
+            </LinearLayout>
+
             <!-- ── Debug Logging ───────────────────────────────────────────── -->
             <TextView
                 android:layout_width="match_parent"
@@ -393,6 +552,34 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
+
+            <!-- ── About ──────────────────────────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ABOUT"
+                android:textColor="#546E7A"
+                android:textSize="11sp"
+                android:letterSpacing="0.12"
+                android:paddingTop="24dp"
+                android:paddingBottom="12dp" />
+
+            <TextView
+                android:id="@+id/txt_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#90A4AE"
+                android:textSize="14sp"
+                android:paddingBottom="12dp" />
+
+            <Button
+                android:id="@+id/btn_licenses"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Open-Source Licenses"
+                android:backgroundTint="#1E3A5F"
+                android:textColor="#90A4AE"
+                android:layout_marginBottom="24dp" />
 
         </LinearLayout>
     </ScrollView>

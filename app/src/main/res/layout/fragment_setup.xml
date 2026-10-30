@@ -63,6 +63,40 @@
             android:background="@drawable/spinner_bg"
             android:layout_marginBottom="16dp" />
 
+        <!-- ── Custom workout mode ────────────────────────────────── -->
+        <LinearLayout
+            android:id="@+id/layout_custom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custom Workout"
+                android:textColor="#90A4AE"
+                android:textSize="12sp"
+                android:paddingBottom="4dp" />
+
+            <Spinner
+                android:id="@+id/spinner_custom_workout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/spinner_bg"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btn_open_custom_editor"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="OPEN WORKOUT EDITOR"
+                android:textSize="13sp"
+                android:backgroundTint="#1E3A5F"
+                android:textColor="#90A4AE"
+                android:layout_marginBottom="16dp" />
+        </LinearLayout>
+
         <!-- ── Distance mode ───────────────────────────────────────── -->
         <LinearLayout
             android:id="@+id/layout_distance"
@@ -339,7 +373,7 @@
             android:textStyle="bold"
             android:backgroundTint="#1976D2"
             android:textColor="#FFFFFF"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="8dp" />
 
         <LinearLayout
             android:layout_width="match_parent"

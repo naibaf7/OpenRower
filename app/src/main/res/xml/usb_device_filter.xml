@@ -6,10 +6,14 @@
     Omitting product-id acts as a wildcard, matching every chip from this vendor:
     CH340, CH341, CH340K, CH340B, CH340C, CH9102, etc.
 
+    Vendor 0x303A = Espressif (decimal 12346): the OpenRower sensor board's ESP32-C3
+    native USB Serial/JTAG port (303A:1001, CDC-ACM).
+
     On Android 15+ (API 35+) apps can only enumerate USB devices in getDeviceList()
     if the device matches this filter, so a vendor-level wildcard is necessary to
     cover all CH340 clone variants found on Arduino Nano boards.
 -->
 <resources>
     <usb-device vendor-id="6790" />
+    <usb-device vendor-id="12346" />
 </resources>

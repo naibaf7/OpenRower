@@ -1,0 +1,35 @@
+OpenRower turns your Android phone or tablet into a rowing monitor for any indoor rowing machine with a flywheel sensor. The sensor sends the timing of every flywheel pulse to the app. OpenRower works out your pace, power, stroke rate and distance, draws your force curve live and records every workout.
+
+<b>While you row</b>
+• Pace per 500 m, current and average
+• Stroke rate, and power in watts or calories
+• Time and distance, elapsed and remaining, with a projected finish
+• A force curve for every stroke
+• A stroke-by-stroke chart of power with heart-rate zones
+• Heart rate from a Bluetooth chest strap
+
+<b>Workouts</b>
+• Free rowing, set distance, set time and target pace
+• Custom interval workouts: build segments on a timeline and give each one a target pace. Add your own music, matched to your stroke rate, and hear a spoken countdown before each segment.
+• Training history with the splits of every workout
+
+<b>Your machine</b>
+• The drag factor is measured on every stroke
+• Built-in profiles for the Concept2 Model C, D and E and the Infinity R70
+• Machine profiles keep the calibration for each of your machines
+• Calibrate the distance against your machine's own monitor
+• Test Mode lets you try everything without any hardware
+
+<b>Hardware</b>
+OpenRower needs a flywheel sensor that connects over Bluetooth LE or USB. You can use:
+• a DIY build: an Arduino Nano with a BT05/HM-10 Bluetooth module and a hall sensor with magnets on the flywheel, or
+• the OpenRower sensor board, an open-hardware board that is still in development. It connects to the original flywheel sensor of a Concept2 Model C, D or E in place of the Concept2 monitor, or to a hall sensor on any other machine.
+Build instructions, firmware and the board design are on GitHub: https://github.com/naibaf7/OpenRower
+
+<b>Private by design</b>
+OpenRower has no internet access. Your workouts stay on your device. There is no account, no ads and no tracking.
+
+<b>Open source</b>
+OpenRower is free and open source under the MIT License. Bug reports and contributions are welcome on GitHub.
+
+Concept2 is a trademark of Concept2, Inc. OpenRower is not affiliated with or endorsed by Concept2.

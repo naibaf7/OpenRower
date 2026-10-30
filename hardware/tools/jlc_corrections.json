@@ -1,0 +1,302 @@
+{
+ "C11702": {
+  "footprint": "R_0402_1005Metric",
+  "easyeda": "R0402",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0772,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C123811": {
+  "footprint": "D_SOD-123F",
+  "easyeda": "SOD-123FL_L2.8-W1.8-LS3.7-BI",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.3,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C15195": {
+  "footprint": "C_0402_1005Metric",
+  "easyeda": "C0402",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0599,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C1525": {
+  "footprint": "C_0402_1005Metric",
+  "easyeda": "C0402",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0599,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C15849": {
+  "footprint": "C_0603_1608Metric",
+  "easyeda": "C0603",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.075,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C165948": {
+  "footprint": "USB_C_Receptacle_HRO_TYPE-C-31-M-12_Edge",
+  "easyeda": "USB-C_SMD-TYPE-C-31-M-12_1",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": -1.5709,
+  "rms_mm": 0.0001,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C19702": {
+  "footprint": "C_0603_1608Metric",
+  "easyeda": "C0603",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.075,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C2286": {
+  "footprint": "LED_0603_1608Metric",
+  "easyeda": "LED-SMD_L1.6-W0.8-R-RD",
+  "theta": 0,
+  "dx": -0.0001,
+  "dy": -0.0001,
+  "rms_mm": 0.0374,
+  "matched_by": "number",
+  "note": "polarity via symbol pin 2=K"
+ },
+ "C25076": {
+  "footprint": "R_0402_1005Metric",
+  "easyeda": "R0402",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0772,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C25104": {
+  "footprint": "R_0402_1005Metric",
+  "easyeda": "R0402",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0772,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C25741": {
+  "footprint": "R_0402_1005Metric",
+  "easyeda": "R0402",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0772,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C25744": {
+  "footprint": "R_0402_1005Metric",
+  "easyeda": "R0402",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0772,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C25756": {
+  "footprint": "R_0402_1005Metric",
+  "easyeda": "R0402",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0772,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C25768": {
+  "footprint": "R_0402_1005Metric",
+  "easyeda": "R0402",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0772,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C25804": {
+  "footprint": "R_0603_1608Metric",
+  "easyeda": "R0603",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0716,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C25905": {
+  "footprint": "R_0402_1005Metric",
+  "easyeda": "R0402",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0772,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C26083": {
+  "footprint": "R_0402_1005Metric",
+  "easyeda": "R0402",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0772,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C318884": {
+  "footprint": "SW_Push_1P1T_XKB_TS-1187A",
+  "easyeda": "SW-SMD_4P-L5.1-W5.1-P3.70-LS6.5-TL_H1.5",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0251,
+  "matched_by": "geometry",
+  "note": ""
+ },
+ "C41349510": {
+  "footprint": "ESP32-C3-MINI-1",
+  "easyeda": "WIFIM-SMD_ESP32-C3-MINI-1",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 2.7,
+  "rms_mm": 0.0001,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C431536": {
+  "footprint": "Jack_2.5mm_SHOUHAN_PJ-242",
+  "easyeda": "AUDIO-SMD_PJ-242_1",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": -0.0001,
+  "rms_mm": 0.0001,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C47546": {
+  "footprint": "SOT-23",
+  "easyeda": "SOT-23-3_L3.0-W1.7-P0.95-LS2.9-BR",
+  "theta": 180,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.1545,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C51118": {
+  "footprint": "SOT-23-5",
+  "easyeda": "SOT-25-5_L2.9-W1.6-P0.95-LS2.8-BL",
+  "theta": 270,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.1592,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C52923": {
+  "footprint": "C_0402_1005Metric",
+  "easyeda": "C0402",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0599,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C55136": {
+  "footprint": "SOT-23-5",
+  "easyeda": "SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BL",
+  "theta": 270,
+  "dx": 0.0032,
+  "dy": 0.0,
+  "rms_mm": 0.0158,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C67470": {
+  "footprint": "SOIC-8_3.9x4.9mm_P1.27mm",
+  "easyeda": "SOIC-8_L5.0-W4.0-P1.27-LS6.0-BL",
+  "theta": 270,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.2301,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C70077": {
+  "footprint": "Fuse_1206_3216Metric",
+  "easyeda": "F1206",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.045,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C7519": {
+  "footprint": "SOT-23-6",
+  "easyeda": "SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BL",
+  "theta": 270,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0116,
+  "matched_by": "number",
+  "note": ""
+ },
+ "C8598": {
+  "footprint": "D_SOD-123",
+  "easyeda": "SOD-123_L2.7-W1.6-LS3.7-RD-1",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.05,
+  "matched_by": "number",
+  "note": "polarity via symbol pin 1=-"
+ },
+ "C965804": {
+  "footprint": "LED_0603_1608Metric",
+  "easyeda": "LED0603-RD_GREEN",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0001,
+  "rms_mm": 0.0124,
+  "matched_by": "number",
+  "note": "polarity via symbol pin 1=K"
+ },
+ "C965807": {
+  "footprint": "LED_0603_1608Metric",
+  "easyeda": "LED0603-RD_BLUE",
+  "theta": 0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "rms_mm": 0.0387,
+  "matched_by": "number",
+  "note": "polarity via symbol pin 1=K"
+ }
+}

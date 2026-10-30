@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "OpenRower")(type "KiCad")(uri "${KIPRJMOD}/OpenRower.kicad_sym")(options "")(descr "Project-local symbols (ESP32-C3-MINI-1, SY6280AAC)"))
+)

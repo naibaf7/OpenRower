@@ -15,7 +15,7 @@ local.properties
 .idea/caches
 .idea/navEditor.xml
 .idea/deploymentTargetDropDown.xml
-.DS_Store
+.idea/deploymentTargetSelector.xml
 build/
 captures/
 .externalNativeBuild/
@@ -35,13 +35,30 @@ captures/
 keystore.properties
 google-services.json
 
-# ── Arduino / C++ ─────────────────────────────────────────────────────────────
-# Arduino IDE build output
-build/
+# ── Arduino / ESP32 build output (firmware images go to GitHub releases) ─────
 *.elf
 *.hex
 *.bin
 *.map
+OpenRowerESP32/release/
+
+# ── KiCad / hardware ──────────────────────────────────────────────────────────
+*.lck
+*.kicad_prl
+*-backups/
+fp-info-cache
+.history/
+hardware/backup/
+# fabrication outputs from tools/make_fab.py go to GitHub releases
+hardware/fab/
+hardware/bom/
+hardware/*.zip
+# EasyEDA/LCSC API responses, re-fetched by tools/jlc_align.py
+hardware/tools/easyeda_cache/
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
 
 # ── OS artefacts ──────────────────────────────────────────────────────────────
 .DS_Store

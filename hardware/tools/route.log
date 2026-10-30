@@ -1,0 +1,46 @@
+pad-internal GND vias: 5
+/USB_DP          pads= 5 OK (1.1s)
+/USB_DM          pads= 5 OK (0.2s)
+/VBUS            pads= 5 OK (0.2s)
++5V              pads=11 OK (3.8s)
+/JACK_RING       pads= 6 OK (0.1s)
+/HALL_3V3_OUT    pads= 3 OK (0.0s)
+/HALL_5V_OUT     pads= 3 OK (0.0s)
++3V3             pads=20 OK (7.7s)
+/LED3_A          pads= 2 OK (0.0s)
+/LED2_A          pads= 2 OK (0.0s)
+/LED1_A          pads= 2 OK (0.0s)
+/COIL_IN         pads= 2 OK (0.6s)
+/STRAP_GPIO8     pads= 2 OK (0.0s)
+/ISET_5V         pads= 2 OK (0.0s)
+/ISET_3V3        pads= 2 OK (0.0s)
+/TIP_PU          pads= 2 OK (0.0s)
+/CC1             pads= 2 OK (0.0s)
+/CC2             pads= 2 OK (0.0s)
+/STRAP_GPIO2     pads= 2 OK (0.7s)
+/LDO_EN          pads= 2 OK (0.1s)
+/VREF_B          pads= 4 OK (0.0s)
+/TIP_DC          pads= 3 OK (1.1s)
+/LED_BLE         pads= 2 OK (1.6s)
+/VREF_A          pads= 4 OK (0.1s)
+/COIL_OUT        pads= 4 OK (1.0s)
+/ESP_EN          pads= 5 OK (0.8s)
+/COIL_AC         pads= 5 OK (0.7s)
+/LED_DATA        pads= 2 OK (10.5s)
+  FAIL /BOOT -> fixed+U1.23
+/BOOT            pads= 3 FAILED (24.8s)
+  rip-up ['+3V3'] for /BOOT
+/BOOT            pads= 3 OK (7.7s)
++3V3             pads=20 OK (6.8s)
+/SENSOR_OUT      pads= 4 OK (6.4s)
+/JACK_TIP        pads= 5 OK (0.2s)
+/HALL_5V_EN      pads= 3 OK (9.3s)
+/RING_SENSE      pads= 4 OK (6.4s)
+/HALL_3V3_EN     pads= 3 OK (16.9s)
+  GND R28.2: no route to a via yet
+GND fanout vias: 51
+  GND R28.2: rip ['+3V3'] for its via at (135.50, 117.15)
+  reroute +3V3: OK
+dangling ends trimmed: 1
+stitching vias: 127
+done: 312 segments, 231 vias, 133s

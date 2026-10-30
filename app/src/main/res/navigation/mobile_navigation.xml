@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_setup"
-        android:name="com.naibaf7.openrower.ui.setup.SetupFragment"
+        android:name="com.smartapes.openrower.ui.setup.SetupFragment"
         android:label="Workout Setup"
         tools:layout="@layout/fragment_setup">
 
@@ -34,30 +34,68 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/action_setup_to_custom_workout_editor"
+            app:destination="@id/nav_custom_workout_editor"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_workout"
-        android:name="com.naibaf7.openrower.ui.workout.WorkoutFragment"
+        android:name="com.smartapes.openrower.ui.workout.WorkoutFragment"
         android:label="Workout"
         tools:layout="@layout/fragment_workout">
 
         <argument
             android:name="config"
-            app:argType="com.naibaf7.openrower.model.WorkoutConfig"
+            app:argType="com.smartapes.openrower.model.WorkoutConfig"
             app:nullable="true"
             android:defaultValue="@null" />
+
+        <action
+            android:id="@+id/action_workout_to_detail"
+            app:destination="@id/nav_workout_detail"
+            app:popUpTo="@id/nav_workout"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_custom_workout_editor"
+        android:name="com.smartapes.openrower.ui.customworkout.CustomWorkoutEditorFragment"
+        android:label="Custom Workout"
+        tools:layout="@layout/fragment_custom_workout_editor">
+
+        <argument
+            android:name="customWorkoutId"
+            app:argType="long"
+            android:defaultValue="0L" />
+
+        <action
+            android:id="@+id/action_custom_workout_editor_to_workout"
+            app:destination="@id/nav_workout"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_settings"
-        android:name="com.naibaf7.openrower.ui.settings.SettingsFragment"
+        android:name="com.smartapes.openrower.ui.settings.SettingsFragment"
         android:label="Settings"
         tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/nav_history"
-        android:name="com.naibaf7.openrower.ui.history.HistoryFragment"
+        android:name="com.smartapes.openrower.ui.history.HistoryFragment"
         android:label="Training History"
         tools:layout="@layout/fragment_history">
 
@@ -72,7 +110,7 @@
 
     <fragment
         android:id="@+id/nav_workout_detail"
-        android:name="com.naibaf7.openrower.ui.history.WorkoutDetailFragment"
+        android:name="com.smartapes.openrower.ui.history.WorkoutDetailFragment"
         android:label="Workout Detail"
         tools:layout="@layout/fragment_workout_detail">
 

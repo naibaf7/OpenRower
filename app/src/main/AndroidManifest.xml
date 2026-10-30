@@ -10,6 +10,13 @@
         android:usesPermissionFlags="neverForLocation"
         tools:targetApi="s" />
 
+    <!-- ── Media / storage permissions ────────────────────────────────── -->
+    <!-- Android 13+ granular media permission for reading MP3 files -->
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <!-- Fallback for Android 12 and below -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
     <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="false" />
     <uses-feature android:name="android.hardware.usb.host" android:required="false" />

@@ -1,10 +1,19 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.ksp)
 }
 
+// Play upload key, read from keystore.properties in the project root (git-ignored, see RELEASING.md).
+// Without that file, release builds come out unsigned.
+val keystoreProperties = Properties().apply {
+    val f = rootProject.file("keystore.properties")
+    if (f.exists()) f.inputStream().use { load(it) }
+}
+
 android {
-    namespace = "com.naibaf7.openrower"
+    namespace = "com.smartapes.openrower"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -12,7 +21,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.naibaf7.openrower"
+        applicationId = "com.smartapes.openrower"
         minSdk = 31
         targetSdk = 36
         versionCode = 1
@@ -21,8 +30,20 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        if (!keystoreProperties.isEmpty) {
+            create("release") {
+                storeFile = rootProject.file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig = signingConfigs.findByName("release")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
